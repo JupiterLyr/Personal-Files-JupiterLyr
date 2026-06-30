@@ -2,7 +2,6 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-
 <!-- 禁止缓存，防止 Pages 更新后浏览器仍显示旧版本 -->
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
@@ -251,13 +250,17 @@
             <stop offset="45%" stop-color="#d4a017"/><stop offset="70%" stop-color="#c1432e"/>
             <stop offset="100%" stop-color="#5a8c3e"/>
           </linearGradient>
+          <marker id="rmArrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+            <path d="M0,0 L7,4 L0,8 Z" fill="#9a7400"/>
+          </marker>
         </defs>
-        <!-- 兰州→西宁 接驳虚线 -->
-        <line x1="40" y1="200" x2="90" y2="200" stroke="#9a7400" stroke-width="2.4" stroke-dasharray="6,4"/>
-        <circle cx="40" cy="200" r="8" fill="#9a7400"/>
-        <text x="40" y="225" text-anchor="middle" font-size="12" font-weight="700" fill="#2c2416">兰州</text>
-        <text x="40" y="240" text-anchor="middle" font-size="10" fill="#6b5d4f">1520m·D1飞抵</text>
-        <text x="65" y="190" text-anchor="middle" font-size="9" fill="#9a7400">高铁1h</text>
+        <!-- 兰州（抬高到左上角，标签置于节点上方，避免与西宁文案重叠） -->
+        <circle cx="48" cy="118" r="8" fill="#9a7400"/>
+        <text x="48" y="104" text-anchor="middle" font-size="12" font-weight="700" fill="#2c2416">兰州</text>
+        <text x="48" y="90" text-anchor="middle" font-size="10" fill="#6b5d4f">1520m·D1飞抵</text>
+        <!-- 兰州→西宁 接驳虚线（拉长为斜线，中段标注高铁1h） -->
+        <line x1="54" y1="126" x2="84" y2="192" stroke="#9a7400" stroke-width="2.4" stroke-dasharray="6,4" marker-end="url(#rmArrow)"/>
+        <text x="92" y="150" text-anchor="start" font-size="9.5" fill="#9a7400" font-weight="600">高铁约1h</text>
         <path d="M 90 200 Q 200 150 320 165 T 520 150 Q 640 130 720 160 T 860 150 Q 960 165 990 210 Q 1010 260 920 270 T 700 265 Q 480 260 300 255 T 110 240 Q 70 225 90 200 Z"
               fill="none" stroke="url(#routeGrad)" stroke-width="3.5" stroke-linecap="round"/>
         <g font-family="-apple-system,sans-serif" font-size="12" fill="#2c2416">
@@ -431,7 +434,31 @@
     <div class="sec-head">
       <span class="sec-tag">DAILY ITINERARY</span>
       <h2>每日详细行程（点击卡片展开/收起）</h2>
-      <p>左侧色条标记当日住宿海拔区间：<span style="color:var(--grass);font-weight:600">绿</span>=低海拔(&lt;2000m，舒适)；<span style="color:var(--lake);font-weight:600">蓝</span>=中海拔(2000–3200m，需注意)；<span style="color:var(--danxia);font-weight:600">红</span>=高原段重点防护。里程/车程/路况已逐日标注。</p>
+      <p>左侧色条标记当日住宿海拔区间：<span style="color:var(--grass);font-weight:600">绿</span>=低海拔(&lt;2000m，舒适)；<span style="color:var(--lake);font-weight:600">蓝</span>=中海拔(2000–3200m，需注意)；<span style="color:var(--danxia);font-weight:600">红</span>=高原段重点防护。里程/车程/路况已逐日标注。每张卡片内 <b>🚆 铁路接驳参考</b>给出沿途火车站名与到景点距离。</p>
+    </div>
+
+    <!-- 铁路接驳总览 -->
+    <div class="panel" style="border-left:5px solid var(--lake)">
+      <h3 style="color:var(--lake)">🚆 全线铁路接驳速览（火车站名 + 到景点距离）</h3>
+      <p style="font-size:13px;color:var(--ink-soft);margin-bottom:14px">青甘环线<b>可火车点到点的主要是两段</b>：① 起点的「西宁↔茶卡」旅游专列；② 后半程「敦煌→嘉峪关→张掖→（门源）→西宁」的兰新高铁走廊。<b>柴达木盆地（大柴旦/水上雅丹/雅丹无人区）与祁连县无客运铁路，必须包车/自驾</b>。下表为关键站点与到景点距离，供你把火车与小交通拼接。</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th style="width:90px">关联日</th><th>火车站</th><th>对应景点 & 站到景点距离</th><th>车次/时长参考</th></tr></thead>
+          <tbody>
+            <tr><td><b>D2 起圈</b></td><td><b>西宁站</b></td><td>青藏铁路/兰新高铁枢纽，环线起点</td><td>兰州→西宁动车约 1h</td></tr>
+            <tr><td><b>D3</b></td><td><b>茶卡站</b>（乌兰县茶卡镇）</td><td><b>出站步行约 5 分钟即达茶卡盐湖售票口</b></td><td>旺季「天空之镜」号专列 西宁↔茶卡</td></tr>
+            <tr><td><b>D3</b></td><td><b>海晏站 / 刚察站</b></td><td>青海湖东/北侧，下车后小交通约 30–60min 到湖边</td><td>西宁↔海晏 动车/普速 多班</td></tr>
+            <tr><td><b>D4</b></td><td><b>德令哈站</b>（市区）</td><td>距可鲁克湖约 45km；距大柴旦/翡翠湖较远（翡翠湖在柴旦镇西约 12km）</td><td>西宁↔德令哈 动车/普速</td></tr>
+            <tr><td style="color:#b0a48f"><b>D5</b></td><td style="color:#b0a48f">无（柴达木无人区）</td><td style="color:#b0a48f">水上雅丹/U型公路/东台吉乃尔湖均在 G315 沿线，<b>仅能自驾包车</b></td><td style="color:#b0a48f">—</td></tr>
+            <tr><td><b>D6 抵敦煌</b></td><td><b>敦煌站</b>（已通动车）</td><td><b>距莫高窟数字展示中心约 12km、鸣沙山月牙泉约 5km、市区打车便捷</b></td><td>兰州/西宁→敦煌 动车（含 D2749 等）</td></tr>
+            <tr><td><b>D8</b></td><td><b>嘉峪关南站</b></td><td><b>距嘉峪关关城约 20km</b>，有景区直通车</td><td>敦煌→嘉峪关南 动车约 2.5–3h</td></tr>
+            <tr><td><b>D8</b></td><td><b>张掖西站</b></td><td><b>打车约 30min（约 25km）到七彩丹霞</b></td><td>嘉峪关南→张掖西 动车约 1h17min</td></tr>
+            <tr><td style="color:#b0a48f"><b>D9</b></td><td style="color:#b0a48f">无（祁连县不通铁路）</td><td style="color:#b0a48f">张掖↔祁连翻扁都口为山区公路，<b>须包车/班车</b></td><td style="color:#b0a48f">西宁↔祁连 有班车</td></tr>
+            <tr><td><b>D10 返程</b></td><td><b>门源站</b>（兰新高铁，县城）</td><td>看完门源金秋草甸/雪峰后回县城乘车；<b>门源→西宁动车仅约 37–45min</b></td><td>D8902/D8904/D9918 等 多班，二等座约 ¥30</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tip-line alt" style="margin-top:12px">💡 <b>怎么用</b>：本攻略以<b>全程包车/拼车</b>串联最顺（无人区、祁连等无铁路段必须用车）；上表用于<b>两种增强玩法</b>——① 行程首尾用火车点到点（如西宁↔茶卡专列、门源↔西宁动车）省去翻垭口的辛苦；② 若你更偏"高铁+小交通"自由行，可在敦煌→嘉峪关→张掖段直接乘兰新高铁，再在各站打车/包小车去景点。</div>
     </div>
 
     <div class="action-bar">
@@ -444,7 +471,7 @@
       <div class="day-head" onclick="toggleDay(this)">
         <div class="day-num"><b>D1</b><small>DAY 01</small></div>
         <div class="day-title"><h3>飞抵兰州 · 平原过渡夜</h3><div class="route">全国各地 ✈️ 兰州中川机场 · 入住市区</div></div>
-        <div class="day-stats"><span>🚗 <b>机场→市区 ~70km/1h</b></span><span>⛰️ <b>1520m</b></span><span>⏱️ <b>半天</b></span></div>
+        <div class="day-stats"><span>✈️ <b>飞抵兰州中川机场</b></span><span>🚆 <b>机场↔市区城际/打车~1h(70km)</b></span><span>⛰️ <b>1520m</b></span><span>⏱️ <b>半天</b></span></div>
         <span class="toggle-ico">▼</span>
       </div>
       <div class="day-body">
@@ -468,7 +495,7 @@
       <div class="day-head" onclick="toggleDay(this)">
         <div class="day-num"><b>D2</b><small>DAY 02</small></div>
         <div class="day-title"><h3>兰州 →（高铁1h）→ 西宁 · 高原适应日</h3><div class="route">🚄 兰州西站 → 西宁站 · 入住市区，与包车/拼车会合</div></div>
-        <div class="day-stats"><span>🚄 <b>动车 ~1h</b></span><span>⛰️ <b>2260m</b></span><span>⏱️ <b>半天</b></span></div>
+        <div class="day-stats"><span>🚆 <b>兰州西→西宁站 动车~1h</b></span><span>🚗 <b>抵宁后市内打车</b></span><span>⛰️ <b>2260m</b></span><span>⏱️ <b>半天</b></span></div>
         <span class="toggle-ico">▼</span>
       </div>
       <div class="day-body">
@@ -492,7 +519,7 @@
       <div class="day-head" onclick="toggleDay(this)">
         <div class="day-num"><b>D3</b><small>DAY 03</small></div>
         <div class="day-title"><h3>西宁 → 日月山 → 青海湖 → 茶卡镇</h3><div class="route">环湖西路观光 · 宿茶卡镇(3050m)</div></div>
-        <div class="day-stats"><span>🚗 <b>~300km/5h</b></span><span>⛰️ <b>经橡皮山3817m</b></span><span>⏱️ <b>全天</b></span></div>
+        <div class="day-stats"><span>🚗 <b>包车 ~300km/5h</b></span><span>🚆 <b>西宁↔茶卡专列·旺季</b></span><span>⛰️ <b>经橡皮山3817m</b></span><span>⏱️ <b>全天</b></span></div>
         <span class="toggle-ico">▼</span>
       </div>
       <div class="day-body">
@@ -506,6 +533,7 @@
         <div class="day-section"><div class="ds-label">美食</div>
           <div class="poi">📍 黑马河/茶卡镇：牦牛肉火锅、退骨肉（吃完退骨称重）、炕锅羊排。湖边餐厅偏贵，建议到镇上吃。人均 70–90 元。</div>
         </div>
+        <div class="tip-line alt">🚆 <b>铁路接驳参考</b>：起点 <b>西宁站</b>为青藏铁路枢纽。<b>茶卡盐湖直接通火车</b>——青藏铁路 <b>茶卡站</b>（乌兰县茶卡镇）旺季有 <b>西宁站↔茶卡站「天空之镜」号旅游专列</b>，<b>出站步行约 5 分钟即达茶卡盐湖售票口</b>（另有 Z6811/Z9651 等普速经停）。青海湖段最近为青藏铁路 <b>海晏站 / 刚察站</b>（环湖东、北侧），下车后仍需小交通约 30–60min 到湖边。本顺时针闭环以包车串联最顺；若想"火车点到点"，可西宁↔茶卡乘专列单独往返。</div>
         <div class="tip-line">⚠️ <b>10 月深秋</b>橡皮山垭口可能<b>积雪或结冰</b>、风极大、体感接近 0℃，拍照控制在 5–10 分钟、<b>切勿跑跳</b>，防受凉感冒诱发高反。青海湖边务必穿羽绒+防风外套。自驾需关注垭口路况、备防滑链。</div>
       </div>
     </div>
@@ -515,7 +543,7 @@
       <div class="day-head" onclick="toggleDay(this)">
         <div class="day-num"><b>D4</b><small>DAY 04</small></div>
         <div class="day-title"><h3>茶卡盐湖 → 德令哈 → 大柴旦翡翠湖</h3><div class="route">天空之镜 + 翡翠湖日落 · 宿大柴旦(3150m) ⚠️最高宿</div></div>
-        <div class="day-stats"><span>🚗 <b>~400km/5.5h</b></span><span>⛰️ <b>3050→3150m</b></span><span>⏱️ <b>全天</b></span></div>
+        <div class="day-stats"><span>🚆 <b>德令哈站可达·大柴旦段须包车</b></span><span>⛰️ <b>3050→3150m</b></span><span>⏱️ <b>全天</b></span></div>
         <span class="toggle-ico">▼</span>
       </div>
       <div class="day-body">
@@ -529,6 +557,7 @@
         <div class="day-section"><div class="ds-label">美食</div>
           <div class="poi">📍 茶卡镇牦牛大骨汤暖胃；大柴旦 <b>伊布拉炕锅</b>（羊肉焦香+土豆吸油）、牦牛肉火锅。人均 80–100 元。</div>
         </div>
+        <div class="tip-line alt">🚆 <b>铁路接驳参考</b>：途中 <b>德令哈站</b>（青藏铁路客运二等站，2023 新站房，位于德令哈市区）可达，旺季有西宁↔德令哈动车/普速；德令哈距可鲁克湖约 45km。终点 <b>大柴旦</b>最近铁路为青藏铁路 <b>大柴旦站（鱼卡站方向）</b>，但客运班次少、距镇区与翡翠湖均较远（翡翠湖在柴旦镇西约 <b>12km</b>），<b>实际仍以包车/自驾为主</b>。建议本日全程包车，铁路仅作备选。</div>
         <div class="tip-line">🩺 <b>全程最高住宿点 3,150m</b>：当晚不洗澡、不饮酒，备葡萄糖/布洛芬；<b>10 月夜间可低至 -5℃</b>，确认住宿有暖气、备厚羽绒；不适严重可便携氧气瓶低流量吸氧。淡季住宿宽松但部分客栈或歇业，提前确认。</div>
       </div>
     </div>
@@ -538,7 +567,7 @@
       <div class="day-head" onclick="toggleDay(this)">
         <div class="day-num"><b>D5</b><small>DAY 05</small></div>
         <div class="day-title"><h3>大柴旦 → U型公路 → 水上雅丹 → 大柴旦/冷湖</h3><div class="route">315国道无人区 · 世界唯一水上雅丹</div></div>
-        <div class="day-stats"><span>🚗 <b>~440km往返/5-6h</b></span><span>⛰️ <b>2700–3150m</b></span><span>⏱️ <b>全天</b></span></div>
+        <div class="day-stats"><span>🚗 <b>包车 ~440km往返/5-6h</b></span><span>⛰️ <b>2700–3150m</b></span><span>⏱️ <b>全天</b></span></div>
         <span class="toggle-ico">▼</span>
       </div>
       <div class="day-body">
@@ -552,6 +581,7 @@
         <div class="day-section"><div class="ds-label">美食</div>
           <div class="poi">📍 雅丹景区餐饮选择少，建议自备干粮+热水。当晚回大柴旦，或转住冷湖镇(2,700m)进一步降高反风险。</div>
         </div>
+        <div class="tip-line alt">🚆 <b>铁路接驳参考</b>：本日为大柴旦往返柴达木盆地深处的<b>无人区环线，沿途无客运火车站</b>，水上雅丹、U 型公路、东台吉乃尔湖均在 G315 沿线，<b>只能自驾/包车抵达</b>。最近的铁路点仍是大柴旦/德令哈方向，与景点距离动辄上百公里。本日务必随车，不可依赖铁路。</div>
         <div class="tip-line">📸 U型公路大货车多、车速快，<b>严禁站路中间拍照</b>！315 国道无人区长，务必满油出发、备足饮水、提前下载离线地图（手机信号弱）。10 月戈壁风沙大、紫外线仍强，戴好头巾墨镜口罩；<b>留意大风/沙尘预警，恶劣天气当日可调整或取消雅丹</b>。</div>
       </div>
     </div>
@@ -561,7 +591,7 @@
       <div class="day-head" onclick="toggleDay(this)">
         <div class="day-num"><b>D6</b><small>DAY 06</small></div>
         <div class="day-title"><h3>大柴旦 → 当金山 → 阿克塞 → 敦煌</h3><div class="route">海拔骤降2000m · 沙洲夜市 · 宿敦煌(1140m) 🎉补氧日</div></div>
-        <div class="day-stats"><span>🚗 <b>~360km/5h</b></span><span>⛰️ <b>当金山3600m→1140m▼2000m</b></span><span>⏱️ <b>半天车程+夜市</b></span></div>
+        <div class="day-stats"><span>🚗 <b>包车 ~360km/5h</b></span><span>⛰️ <b>当金山3600m→1140m▼2000m</b></span><span>⏱️ <b>半天车程+夜市</b></span></div>
         <span class="toggle-ico">▼</span>
       </div>
       <div class="day-body">
@@ -575,6 +605,7 @@
         <div class="day-section"><div class="ds-label">美食</div>
           <div class="poi">📍 <b>沙洲夜市</b>：驴肉黄面（达记/顺张）、红柳烤肉、胡羊焖饼、杏皮水、泡儿油糕、沙葱牛肉饼。人均 80–120 元。</div>
         </div>
+        <div class="tip-line alt">🚆 <b>铁路接驳参考</b>：抵达的 <b>敦煌站</b>（敦煌铁路 / 兰新方向，已通动车）是后半程关键枢纽——<b>敦煌站距莫高窟数字展示中心约 12km、距鸣沙山月牙泉约 5km、距市区打车很便捷</b>。本段「大柴旦→敦煌」翻当金山仍为公路无人区、无客运铁路，须包车；<b>但敦煌起，整条河西走廊（敦煌→嘉峪关→张掖→西宁）已被兰新高铁/敦煌铁路串联，可火车点到点</b>（见后两日）。</div>
         <div class="tip-line alt">🎉 敦煌 1,140m 是全程最低点！终于可以洗澡、放松活动。10 月敦煌白天仍有 15–20℃、较舒适，是全程最暖的一段，在此连住为后半程充电。</div>
       </div>
     </div>
@@ -584,7 +615,7 @@
       <div class="day-head" onclick="toggleDay(this)">
         <div class="day-num"><b>D7</b><small>DAY 07</small></div>
         <div class="day-title"><h3>莫高窟（上午）→ 鸣沙山月牙泉（日落）</h3><div class="route">世界文化遗产 + 沙漠落日 · 宿敦煌(1140m)</div></div>
-        <div class="day-stats"><span>🚗 <b>市区~30min</b></span><span>⛰️ <b>1140m</b></span><span>⏱️ <b>全天</b></span></div>
+        <div class="day-stats"><span>🚗 <b>市内打车 ~30min</b></span><span>🚆 <b>敦煌站距莫高窟12km/鸣沙山5km</b></span><span>⛰️ <b>1140m</b></span><span>⏱️ <b>全天</b></span></div>
         <span class="toggle-ico">▼</span>
       </div>
       <div class="day-body">
@@ -598,6 +629,7 @@
         <div class="day-section"><div class="ds-label">美食</div>
           <div class="poi">📍 <b>靖远尕六羊羔肉</b>（手抓白条+沙葱炒蛋）、<b>夏家合汁</b>（羊肉粉汤配饼）。人均 70–110 元。</div>
         </div>
+        <div class="tip-line alt">🚆 <b>市内交通参考</b>：今日皆在敦煌市内，<b>敦煌站</b>距 <b>莫高窟数字展示中心约 12km、鸣沙山月牙泉约 5km</b>，市区到各景点打车/网约车均很便捷（莫高窟需先到数字展示中心换乘景区专线巴士）。无需长途交通。</div>
         <div class="tip-line">🎫 <b>莫高窟预约</b>：10 月中旬已过暑期高峰，A 类票较易约，但国庆余温与周末仍可能紧张，建议提前在"莫高窟参观预约网"小程序预约。约不上买 B 类应急票（4 窟）或改西千佛洞(¥30)/榆林窟。</div>
       </div>
     </div>
@@ -606,8 +638,8 @@
     <div class="day-card low">
       <div class="day-head" onclick="toggleDay(this)">
         <div class="day-num"><b>D8</b><small>DAY 08</small></div>
-        <div class="day-title"><h3>敦煌 → 瓜州 → 嘉峪关 → 张掖七彩丹霞</h3><div class="route">连霍高速 · 天下第一雄关 + 丹霞落日 · 宿张掖(1500m)</div></div>
-        <div class="day-stats"><span>🚗 <b>~590km/6h ⚠️最长</b></span><span>⛰️ <b>1140→1500m</b></span><span>⏱️ <b>全天</b></span></div>
+        <div class="day-title"><h3>敦煌 → 瓜州 → 嘉峪关 → 张掖七彩丹霞</h3><div class="route">连霍高速 / 兰新高铁 · 天下第一雄关 + 丹霞落日 · 宿张掖(1500m)</div></div>
+        <div class="day-stats"><span>🚆 <b>推荐高铁·敦煌→嘉峪关南2.5-3h→张掖西1h17min</b></span><span>⛰️ <b>1140→1500m</b></span><span>⏱️ <b>全天</b></span></div>
         <span class="toggle-ico">▼</span>
       </div>
       <div class="day-body">
@@ -621,7 +653,11 @@
         <div class="day-section"><div class="ds-label">美食</div>
           <div class="poi">📍 嘉峪关 <b>小党烤肉</b>（铁签/红柳串烤、烤羊肚）；张掖甘州巷子 <b>山丹炒拨拉</b>（非遗羊杂铁板爆炒）、牛肉小饭、搓鱼面。人均 50–100 元。</div>
         </div>
-        <div class="tip-line">⚠️ 今天全程最长车程（约 6h），全线连霍高速路况最优，建议早起出发，服务区补水。时间充裕可将本日拆为两天（嘉峪关住 1 晚，补悬壁长城/玉门关）。</div>
+        <div class="tip-line alt">🚆 <b>本段强烈推荐改乘高铁（兰新高铁全程串联，最便利的一段）</b>：<br>
+          • <b>敦煌站 → 嘉峪关南站</b>：动车直达，约 2.5–3h。<b>嘉峪关南站距嘉峪关关城约 20km</b>，有景区直通车。<br>
+          • <b>嘉峪关南站 → 张掖西站</b>：动车约 1 小时 17 分。<b>张掖西站打车约 30min（约 25km）到七彩丹霞</b>，建议提前订景区观光车套票。<br>
+          相比公路全程约 590km/6h，<b>高铁可把"敦煌→嘉峪关→张掖"压缩到 4h 出头且无需赶路</b>；若你是包车团则原车直达、不必换乘。两种方式按你的"包车 or 火车"选择二选一。</div>
+        <div class="tip-line">⚠️ 若坚持公路全程：今天是全程最长车程（约 6h），全线连霍高速路况最优，建议早起出发，服务区补水。时间充裕可将本日拆为两天（嘉峪关住 1 晚，补悬壁长城/玉门关）。</div>
       </div>
     </div>
 
@@ -630,7 +666,7 @@
       <div class="day-head" onclick="toggleDay(this)">
         <div class="day-num"><b>D9</b><small>DAY 09</small></div>
         <div class="day-title"><h3>张掖 → 扁都口 → 祁连草原 → 卓尔山</h3><div class="route">首次回升上高原 · 东方小瑞士 · 宿祁连县(2780m)</div></div>
-        <div class="day-stats"><span>🚗 <b>~260km/4h</b></span><span>⛰️ <b>经扁都口3500m→2780m</b></span><span>⏱️ <b>全天</b></span></div>
+        <div class="day-stats"><span>🚗 <b>包车 ~260km/4h，祁连不通铁路</b></span><span>⛰️ <b>经扁都口3500m→2780m</b></span><span>⏱️ <b>全天</b></span></div>
         <span class="toggle-ico">▼</span>
       </div>
       <div class="day-body">
@@ -643,6 +679,7 @@
         <div class="day-section"><div class="ds-label">美食</div>
           <div class="poi">📍 祁连县：黄菇拌面、牦牛酸奶、草原烤羊排。客栈条件朴素，可体验藏/土族风情。人均 60–90 元。</div>
         </div>
+        <div class="tip-line alt">🚆 <b>铁路接驳参考</b>：<b>祁连县目前不通铁路</b>，最近铁路点为兰新高铁 <b>张掖西站</b>（北）与青藏铁路环湖各站（南），祁连进出主要靠包车/班车（西宁↔祁连每日有班车）。本段「张掖→祁连」翻扁都口为山区公路，<b>无客运火车，须包车/自驾</b>。<b>提示</b>：若放弃祁连、想纯火车衔接，可在 D8 由张掖西站乘动车经西宁，但会错过卓尔山与祁连草原——本攻略仍建议此段包车。</div>
         <div class="tip-line">🧣 <b>10 月祁连段气温很低</b>（白天 5–12℃，夜间可降至 -5℃），需羽绒+抓绒+冲锋衣。从张掖(1500m)回升到祁连(2780m)是后段唯一较大爬升，当晚早休、不剧烈活动。<b>如遇降雪可改从张掖直接返西宁</b>。</div>
       </div>
     </div>
@@ -652,7 +689,7 @@
       <div class="day-head" onclick="toggleDay(this)">
         <div class="day-num"><b>D10</b><small>DAY 10</small></div>
         <div class="day-title"><h3>祁连 → 门源 → 达坂山 → 西宁 · 返程</h3><div class="route">金秋草甸·雪峰 → 返西宁 ✈️ 曹家堡机场 / 🚄 西宁站</div></div>
-        <div class="day-stats"><span>🚗 <b>~320km/5h</b></span><span>⛰️ <b>经达坂山3792m→2260m</b></span><span>⏱️ <b>全天+返程</b></span></div>
+        <div class="day-stats"><span>🚗 <b>祁连→门源</b></span><span>🚆 <b>门源→西宁动车约37-45min</b></span><span>⛰️ <b>经达坂山3792m→2260m</b></span><span>⏱️ <b>全天+返程</b></span></div>
         <span class="toggle-ico">▼</span>
       </div>
       <div class="day-body">
@@ -667,8 +704,23 @@
         <div class="day-section"><div class="ds-label">美食 & 伴手礼</div>
           <div class="poi">📍 门源蜂蜜（伴手礼）；返西宁后 <b>马子禄牛肉面</b> 赶头锅、再补一顿手抓羊肉告别；可购野生枸杞、牦牛肉干。人均 30–80 元。</div>
         </div>
-        <div class="tip-line">🍂 <b>深秋替代看点 + 返程</b>：10 月没有油菜花，但金色草甸、初雪雪峰、清澈天空同样出彩，游客稀少。达坂山垭口 10 月可能积雪，自驾谨慎。<b>务必预留"祁连→西宁车程 5h + 3 小时"缓冲</b>，再据此选定当天返程的航班/高铁时间。兰州进、西宁出，省去返回兰州的折返，环线圆满收尾。</div>
+        <div class="tip-line alt">🚆 <b>铁路接驳参考（本段火车很方便）</b>：<b>门源直接通高铁</b>——兰新高铁 <b>门源站</b>有多班动车回 <b>西宁站</b>，<b>车程仅约 37–45 分钟</b>（如 D8902/D8904/D9918 等，二等座约 30 元，每日多班）。<b>门源站位于县城、距县汽车站不远</b>，但距达坂山/岗什卡等观景点仍需车程，门源观景后回到县城即可乘动车。<b>玩法建议</b>：包车看完门源金秋草甸与雪峰后，<b>在门源站乘动车 40min 直返西宁</b>，比公路（约 150km / 2.5h+ 翻达坂山）更快更稳，尤其垭口降雪时是可靠备选；当然包车直接送回西宁也可。</div>
+        <div class="tip-line">🍂 <b>深秋替代看点 + 返程</b>：10 月没有油菜花，但金色草甸、初雪雪峰、清澈天空同样出彩，游客稀少。达坂山垭口 10 月可能积雪，自驾谨慎。<b>务必预留"祁连→西宁车程 5h + 3 小时"缓冲</b>（若改门源动车返宁则更宽裕），再据此选定当天返程的航班/高铁时间。兰州进、西宁出，省去返回兰州的折返，环线圆满收尾。</div>
       </div>
+    </div>
+
+    <!-- 每日卡片交通说明的注意事项 -->
+    <div class="panel" style="margin-top:24px;border-left:5px solid var(--danxia)">
+      <h3 style="color:var(--danxia)">⚠️ 关于上方每日「🚗包车 / 🚆铁路」交通说明的注意事项</h3>
+      <p style="font-size:13px;color:var(--ink-soft);margin-bottom:12px">每张卡片右上角的交通标签与上文「全线铁路接驳速览」相互对应：<b>🚗 为包车/自驾的里程与车程，🚆 为是否有火车/高铁可替代该段</b>。落地执行前，请务必留意以下时效与季节性提醒（均以出行前 12306 / 官方公告为准）：</p>
+      <ul style="list-style:none;font-size:13.5px;color:var(--ink-soft)">
+        <li style="padding:5px 0 5px 20px;position:relative"><span style="position:absolute;left:2px;color:var(--danxia);font-weight:700">›</span><b>旅游专列季节性强</b>：茶卡「天空之镜」号（西宁↔茶卡）等旅游专列<b>多为旺季（约 6–9 月）开行</b>，<b>10 月中旬班次可能大幅减少甚至停运</b>；出行前务必在 12306 按实际日期核实，无车时该段以包车为准。</li>
+        <li style="padding:5px 0 5px 20px;position:relative"><span style="position:absolute;left:2px;color:var(--danxia);font-weight:700">›</span><b>动车班次随月份调整</b>：西宁↔门源、敦煌方向动车存在"旺季加开、淡季缩减"情况，10 月班次少于暑期；门源末班动车较早，<b>当天若赶动车返宁须核对末班时刻</b>。</li>
+        <li style="padding:5px 0 5px 20px;position:relative"><span style="position:absolute;left:2px;color:var(--danxia);font-weight:700">›</span><b>"无铁路"段不可改火车</b>：D5 柴达木无人区（水上雅丹/U型公路）、D6 大柴旦→敦煌翻当金山、D9 张掖→祁连翻扁都口，<b>均无客运铁路，必须包车/自驾</b>，标签已注明，请勿据"高铁速览"误判。</li>
+        <li style="padding:5px 0 5px 20px;position:relative"><span style="position:absolute;left:2px;color:var(--danxia);font-weight:700">›</span><b>火车站≠景点门口</b>：除茶卡站（步行 5min 到盐湖）外，多数站到景点仍有距离——德令哈站距可鲁克湖约 45km、嘉峪关南站距关城约 20km、张掖西站距七彩丹霞约 25km/打车 30min、敦煌站距莫高窟约 12km，<b>需预留站到景点的小交通（打车/景区直通车）时间与费用</b>。</li>
+        <li style="padding:5px 0 5px 20px;position:relative"><span style="position:absolute;left:2px;color:var(--danxia);font-weight:700">›</span><b>"火车+小交通"与"全程包车"二选一</b>：若选高铁串联（尤其 D8 敦煌→嘉峪关→张掖），需自行在各站换乘打车/包小车去景点、并另订住宿；若选全程包车则原车直达、最省心。两种方式不要混算车程。</li>
+        <li style="padding:5px 0 5px 20px;position:relative"><span style="position:absolute;left:2px;color:var(--danxia);font-weight:700">›</span><b>深秋雨雪影响铁路与公路</b>：10 月高海拔垭口降雪可能导致公路临时管制；铁路受影响较小，故<b>降雪时"门源↔西宁动车""敦煌→张掖高铁"可作为更稳妥的备选</b>。出行前 1–3 天紧盯气象与路况。</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -780,6 +832,102 @@
         </ul>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ========== 必备物品清单 ========== -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag" style="color:var(--danxia)">ESSENTIALS</span>
+      <h2>必备物品清单（出发前对照打包）</h2>
+      <p>青甘大环线横跨高原、戈壁、沙漠、盐湖，<b>强紫外线 + 极干燥 + 大温差 + 10 月深秋低温</b>叠加。下面分两层：先看<b>「绝不能漏」的硬核必带</b>，再按类别逐项核对。<span style="color:var(--danxia);font-weight:600">标 ★ 者为本线路特别关键、漏带会显著影响体验或安全。</span></p>
+    </div>
+
+    <!-- 硬核必带 高亮条 -->
+    <div class="rec-banner" style="background:linear-gradient(135deg,#c1432e,#9c3422);margin-bottom:22px">
+      <h4>🔴 绝不能漏的 8 件（缺一即影响行程）</h4>
+      <p style="line-height:2">
+        ① <b>身份证</b>（住宿/购票/乘机乘车，全程刚需）　② <b>SPF50+ 防晒霜 + UV400 墨镜 + 大檐帽</b>（高原紫外线极强，物理防晒为主）　③ <b>羽绒服 + 冲锋衣</b>（10 月高原夜间 -5℃、垭口积雪）　④ <b>保湿三件套</b>（润唇膏/面霜/鼻腔凝胶，西北极干）　⑤ <b>便携氧气瓶 + 红景天</b>（高反应急，西宁药店可补）　⑥ <b>常用药包</b>（感冒/肠胃/止痛）　⑦ <b>充电宝 + 多接口充电器 + 离线地图</b>（无人区无信号）　⑧ <b>少量现金</b>（部分加油站/小店只收现金）。
+      </p>
+    </div>
+
+    <!-- 分类清单 -->
+    <div class="pack-grid">
+      <div class="pack-card">
+        <h4><span class="ico" style="background:var(--danxia)">☀</span>防晒 · 防风 · 保湿（本线最关键）★</h4>
+        <ul>
+          <li>★ SPF50+ PA++++ 防晒霜（每 2–3h 补涂，脖子手背别漏）</li>
+          <li>★ UV400 偏光墨镜（盐湖/雪地反光强烈）</li>
+          <li>★ 大檐帽（帽檐≥12cm，带防风绳）/ 防晒帽</li>
+          <li>防晒口罩 / 冰丝面罩 + 防晒衣（深色更防晒）</li>
+          <li>★ 润唇膏 + 高保湿面霜 + 身体乳</li>
+          <li>★ 鼻腔湿润凝胶 / 生理盐水喷雾（防干裂出血）</li>
+          <li>补水面膜（晒后修护）+ 护手霜</li>
+        </ul>
+      </div>
+      <div class="pack-card">
+        <h4><span class="ico" style="background:var(--lake)">🧥</span>保暖衣物（深秋 · 洋葱三层）★</h4>
+        <ul>
+          <li>★ 羽绒服（高原夜间 -5℃，必带）</li>
+          <li>★ 冲锋衣 / 三合一外套（防风防雪，垭口必用）</li>
+          <li>抓绒衣 / 保暖内胆（中层）</li>
+          <li>保暖打底衣 ×3–4 + 加绒裤 / 保暖裤</li>
+          <li>毛线帽 + 围巾 + 保暖手套</li>
+          <li>速干衣裤（敦煌段白天较暖时换穿）</li>
+          <li>纯色长裙/外搭（拍照用，外披大衣保暖）</li>
+        </ul>
+      </div>
+      <div class="pack-card">
+        <h4><span class="ico" style="background:var(--desert)">💊</span>高反 + 常用药品 ★</h4>
+        <ul>
+          <li>★ 红景天（提前 7–10 天开始服）</li>
+          <li>★ 便携氧气瓶（备 1–2 瓶应急，勿依赖）</li>
+          <li>布洛芬（高反头痛 / 睡前助眠）+ 葡萄糖口服液</li>
+          <li>★ 感冒药（深秋易着凉，受凉易诱发高反）</li>
+          <li>蒙脱石散 / 藿香正气水（西北菜偏油辣）</li>
+          <li>晕车药（多盘山弯道）+ 创可贴 + 个人常备药</li>
+          <li>口服补液盐 / 维生素泡腾片</li>
+        </ul>
+      </div>
+      <div class="pack-card">
+        <h4><span class="ico" style="background:var(--grass)">👟</span>鞋履 · 随身装备</h4>
+        <ul>
+          <li>保暖防滑徒步鞋（主力）+ 厚袜数双</li>
+          <li>★ 盐湖透明鞋套（防盐水腐蚀，茶卡可租 ¥10–15）</li>
+          <li>沙漠防沙鞋套（鸣沙山，敦煌可租）</li>
+          <li>★ 保温杯（高原多喝热水，缓解高反）</li>
+          <li>暖宝宝 / 热贴（看日出、夜间备用）</li>
+          <li>双肩小包 + 折叠购物袋（伴手礼）</li>
+          <li>湿巾 / 纸巾 / 一次性马桶垫（部分点位条件简陋）</li>
+        </ul>
+      </div>
+      <div class="pack-card">
+        <h4><span class="ico" style="background:var(--lake)">🔋</span>数码 · 拍摄 · 导航 ★</h4>
+        <ul>
+          <li>★ 大容量充电宝（高原耗电快，氧含量低相机/手机更费电）</li>
+          <li>多接口充电器 + 各设备数据线 + 车充</li>
+          <li>★ 离线地图（提前下载青海/甘肃离线包，无人区无信号）</li>
+          <li>相机 / 备用电池（低温掉电快，电池贴身保暖）</li>
+          <li>无人机（翡翠湖/雅丹俯拍绝佳，留意禁飞区）</li>
+          <li>自拍杆 / 三脚架（盐湖、星空）</li>
+        </ul>
+      </div>
+      <div class="pack-card">
+        <h4><span class="ico" style="background:var(--primary)">📄</span>证件 · 财务 · 杂项 ★</h4>
+        <ul>
+          <li>★ 身份证（住宿/购票/乘机乘车，最重要）</li>
+          <li>学生证 / 老年证（多数景区半价/优惠）</li>
+          <li>驾驶证（自驾必备）+ 身份证复印件备份</li>
+          <li>★ 少量现金（部分加油站、牧区小店仅收现金）</li>
+          <li>★ 旅游意外险电子单（含高原险，¥30–50）</li>
+          <li>常用银行卡 + 手机支付（主流地区可用）</li>
+          <li>莫高窟预约二维码 / 各景区电子票截图</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tip-line" style="margin-top:16px">💡 <b>打包小贴士</b>：① 衣物按「洋葱三层」卷收进压缩袋省空间；② 防晒、保湿、药品分装入随身小包，<b>上车随手可取</b>；③ 重要证件 + 现金 + 充电宝随身，不托运；④ 出发前在手机存好<b>包车师傅电话、酒店地址、紧急联系人、保险报案电话</b>。</div>
   </div>
 </section>
 
